@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: Magnificent calculator for my homework
+  version: 1.0.0
+paths:
+  /add:
+    get:
+      description: Get sum of two float numbers.
+      operationId: GetSum
+      parameters:
+        - name: x
+          in: query
+          required: true
+          description: First parameter
+          schema:
+            type: number
+            format: float
+            example: 3
+        - name: y
+          in: query
+          required: true
+          description: Second parameter
+          schema:
+            type: number
+            format: float
+            example: 4
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 7
+        400:
+          description: Invalid input
+        500:
+          description: Internal server error
+  /multiply:
+    get:
+      description: Get multiplication of two float numbers. If parameter isn't passed it will be set to 1
+      operationId: GetMultiplication
+      parameters:
+        - name: x
+          in: query
+          required: true
+          description: First parameter
+          schema:
+            type: number
+            format: float
+            example: 3.5
+        - name: y
+          in: query
+          required: true
+          description: Second parameter
+          schema:
+            type: number
+            format: float
+            example: 2
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 7
+        400:
+          description: Invalid input
+        500:
+          description: Internal server error
